@@ -10,6 +10,8 @@
    <a class="btn btn-dark" href="{{route('admin.categories.index')}}">All Categories</a>
 </div>
 
+@include('admin.parts.errors')
+
 <form action="{{route('admin.categories.store')}}" method="POST" enctype="multipart/form-data">
 
 @csrf

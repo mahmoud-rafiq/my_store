@@ -27,6 +27,7 @@
             <th>Name</th>
             <th>Image</th>
             <th>Parent</th>
+            <th>Products Count</th>
             <th>Action</th>
 
 
@@ -38,6 +39,7 @@
                 <td>{{ $category->name }}</td>
                 <td><img width="100" src="{{asset('uploads/images/'.$category->image)}}" alt=""></td>
                 <td>{{ $category->parent->name }}</td>
+                <td><span class="badge badge-primary px-2">{{$category->products_count}}</span></td>
                 <td>
                     <a class="btn btn-sm btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">
                         <i class="fas fa-edit"></i></a>

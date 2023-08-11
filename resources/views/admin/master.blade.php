@@ -70,11 +70,12 @@
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" class="dropdown-item" href="{{route('logout')}}" >
+                                <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()"
+                                    class="dropdown-item" href="{{ route('logout') }}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
 
                                     @csrf
                                 </form>
@@ -103,7 +104,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2023</span>
                     </div>
                 </div>
             </footer>
@@ -143,6 +144,12 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('adminasset/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('adminasset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.6.1/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+          selector: '.tinytext'
+        });
+      </script>
 
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('adminasset/vendor/jquery-easing/jquery.easing.min.js') }}"></script>

@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id', 'desc')->paginate(10);
+        $categories = Category::with('products', 'parent')->withCount('products')->orderBy('id', 'desc')->paginate(10);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -66,7 +66,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::findOrFail($id);
-        $categories = Category::whereNull('parent_id')->where('parent_id', '<>',$category->id)->get();
+        $categories = Category::whereNull('parent_id')->where('parent_id', '<>', $category->id)->get();
         return view('admin.categories.edit', compact('categories', 'category'));
     }
 
@@ -75,21 +75,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         //validate input
-         $request->validate([
+        //validate input
+        $request->validate([
             'name' => 'required',
             'image' => 'nullable',
             'parent_id' => 'nullable||exists:categories,id'
         ]);
 
-        $category=Category::findorfail($id);
-        $new_image=$category->image;
+        $category = Category::findorfail($id);
+        $new_image = $category->image;
         //upload the file
-       if($request->hasFile('image')){
-        $new_image = rand() . rand() . time() . $request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path('uploads/images'), $new_image);
-
-       }
+        if ($request->hasFile('image')) {
+            $new_image = rand() . rand() . time() . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('uploads/images'), $new_image);
+        }
         //save data to database
         $category->update([
             'name' => $request->name,
@@ -116,6 +115,6 @@ class CategoryController extends Controller
         //delete item
         $category->delete();
 
-        return redirect()->route('admin.categories.index')->with('msg', 'Category deleted')->with('type', 'danger');
+        return redirect()->route('admin.categories.index')->with('msg', 'Category deleted Successfully')->with('type', 'danger');
     }
 }
