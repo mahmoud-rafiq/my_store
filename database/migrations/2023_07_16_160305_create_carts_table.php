@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('product_id');
             $table->foreignId('order_id')->nullable();
             $table->float('price');
+            $table->integer('qty')->default(1);
             $table->timestamps();
         });
     }

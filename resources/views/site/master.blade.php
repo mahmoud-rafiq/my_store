@@ -1,5 +1,9 @@
+<?php
+use App\Models\Cart;
+?>
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,23 +18,23 @@
 
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
-    <link rel="stylesheet" href="{{asset('siteasset/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/bootstrap.min.css') }}">
     <!-- Owl Carousel main css -->
-    <link rel="stylesheet" href="{{asset('siteasset/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('siteasset/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('siteasset/css/core.css')}}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/core.css') }}">
     <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="{{asset('siteasset/css/shortcode/shortcodes.css')}}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/shortcode/shortcodes.css') }}">
     <!-- Theme main style -->
-    <link rel="stylesheet" href="{{asset('siteasset/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/style.css') }}">
     <!-- Responsive css -->
-    <link rel="stylesheet" href="{{asset('siteasset/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/responsive.css') }}">
     <!-- User style -->
-    <link rel="stylesheet" href="{{asset('siteasset/css/custom.css')}}">
+    <link rel="stylesheet" href="{{ asset('siteasset/css/custom.css') }}">
 
 
     <!-- Modernizr JS -->
-    <script src=" {{ asset('siteasset/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+    <script src=" {{ asset('siteasset/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
     @yield('styles')
 </head>
@@ -50,8 +54,8 @@
                     <div class="row">
                         <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src=" {{ asset('siteasset/images/logo/logo.png')}}" alt="logo">
+                                <a href="{{ route('site.index') }}">
+                                    <img src=" {{ asset('siteasset/images/logo/logo.png') }}" alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -59,7 +63,7 @@
                         <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
                             <nav class="mainmenu__nav hidden-xs hidden-sm">
                                 <ul class="main__menu">
-                                    <li class="drop"><a href="index.html">Home</a></li>
+                                    <li class="drop"><a href="{{ route('site.index') }}">Home</a></li>
                                     <li class="drop"><a href="portfolio-card-box-2.html">portfolio</a>
                                         <ul class="dropdown">
                                             <li><a href="portfolio-card-box-2.html">portfolio</a></li>
@@ -84,44 +88,47 @@
                                             <!-- Start Single Mega MEnu -->
                                             <li><a class="mega__title" href="shop.html">product details layout</a>
                                                 <ul class="mega__item">
-                                                    <li><a href="product-details.html">tab style 1</a></li></li>
-                                                </ul>
+                                                    <li><a href="product-details.html">tab style 1</a></li>
                                             </li>
-                                            <!-- End Single Mega MEnu -->
-                                            <!-- Start Single Mega MEnu -->
+                                        </ul>
+                                    </li>
+                                    <!-- End Single Mega MEnu -->
+                                    <!-- Start Single Mega MEnu -->
+                                    <li>
+                                        <ul class="mega__item">
                                             <li>
-                                                <ul class="mega__item">
-                                                    <li>
-                                                        <div class="mega-item-img">
-                                                            <a href="shop.html">
-                                                                <img src=" {{ asset('siteasset/images/feature-img/3.png')}}" alt="">
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                <div class="mega-item-img">
+                                                    <a href="shop.html">
+                                                        <img src=" {{ asset('siteasset/images/feature-img/3.png') }}"
+                                                            alt="">
+                                                    </a>
+                                                </div>
                                             </li>
-                                            <!-- End Single Mega MEnu -->
                                         </ul>
                                     </li>
-                                    <li class="drop"><a href="#">pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="about.html">about</a></li>
-                                            <li><a href="#">testimonials <span><i class="zmdi zmdi-chevron-right"></i></span></a>
-                                                <ul class="lavel-dropdown">
-                                                    <li><a href="customer-review.html">customer review</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="shop.html">shop</a></li>
-                                            <li><a href="shop-sidebar.html">shop sidebar</a></li>
-                                            <li><a href="product-details.html">product details</a></li>
-                                            <li><a href="cart.html">cart</a></li>
-                                            <li><a href="wishlist.html">wishlist</a></li>
-                                            <li><a href="checkout.html">checkout</a></li>
-                                            <li><a href="team.html">team</a></li>
-                                            <li><a href="login-register.html">login & register</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <!-- End Single Mega MEnu -->
+                                </ul>
+                                </li>
+                                <li class="drop"><a href="#">pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="about.html">about</a></li>
+                                        <li><a href="#">testimonials <span><i
+                                                        class="zmdi zmdi-chevron-right"></i></span></a>
+                                            <ul class="lavel-dropdown">
+                                                <li><a href="customer-review.html">customer review</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="shop.html">shop</a></li>
+                                        <li><a href="shop-sidebar.html">shop sidebar</a></li>
+                                        <li><a href="product-details.html">product details</a></li>
+                                        <li><a href="cart.html">cart</a></li>
+                                        <li><a href="wishlist.html">wishlist</a></li>
+                                        <li><a href="checkout.html">checkout</a></li>
+                                        <li><a href="team.html">team</a></li>
+                                        <li><a href="login-register.html">login & register</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">contact</a></li>
                                 </ul>
                             </nav>
                             <div class="mobile-menu clearfix visible-xs visible-sm">
@@ -165,7 +172,6 @@
                                 <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                                 <li><a href="login-register.html"><span class="ti-user"></span></a></li>
                                 <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
-                                <li class="toggle__menu hidden-xs hidden-sm"><span class="ti-menu"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -175,17 +181,93 @@
             <!-- End Mainmenu Area -->
         </header>
         <!-- End Header Style -->
-@yield('content')
+
+        <div class="body__overlay"></div>
+        <!-- Start Offset Wrapper -->
+        <div class="offset__wrapper">
+            <!-- Start Search Popap -->
+            <div class="search__area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="search__inner">
+                                <form action="#" method="get">
+                                    <input placeholder="Search here... " type="text">
+                                    <button type="submit"></button>
+                                </form>
+                                <div class="search__close__btn">
+                                    <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Search Popap -->
+
+            <!-- Start Cart Panel -->
+            <div class="shopping__cart">
+                <div class="shopping__cart__inner">
+                    <div class="offsetmenu__close__btn">
+                        <a href="#"><i class="zmdi zmdi-close"></i></a>
+                    </div>
+                    <div class="shp__cart__wrap">
+                        @php
+                            $subtotal = 0;
+                            $carts = Cart::with('product')->where('user_id', Auth::id())->whereNull('order_id')->get();
+                        @endphp
+                        @foreach ($carts as $cart)
+                        @php
+                            $subtotal += $cart->price * $cart->qty;
+                        @endphp
+                        <div class="shp__single__product">
+                            <div class="shp__pro__thumb">
+                                <a href="#">
+                                    <img src="{{ asset('uploads/images/products/'.$cart->product->image) }}" alt="product images">
+                                </a>
+                            </div>
+                            <div class="shp__pro__details">
+                                <h2><a href="{{ route('site.product', $cart->product_id) }}">{{ $cart->product->name }}</a></h2>
+                                <span class="quantity">QTY: {{ $cart->qty }}</span>
+                                <span class="shp__price">${{ $cart->price }}</span>
+                            </div>
+                            <div class="remove__btn">
+                                {{-- <form id="remove-item-{{ $cart->id }}" action="{{ route('remove_cart', $cart->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                </form> --}}
+                                {{-- <a onclick="event.preventDefault(); document.getElementById('remove-item-{{ $cart->id }}').submit()" title="Remove this item"><i class="zmdi zmdi-close"></i></a> --}}
+                                <a href="{{ route('remove_cart', $cart->id) }}" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                            </div>
+                        </div>
+                        @endforeach
+
+                    </div>
+                    <ul class="shoping__total">
+                        <li class="subtotal">Subtotal:</li>
+                        <li class="total__price">{{ number_format($subtotal, 2) }}</li>
+                    </ul>
+                    <ul class="shopping__btn">
+                        <li><a href="{{ route('cart') }}">View Cart</a></li>
+                        <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Cart Panel -->
+        </div>
+        <!-- End Offset Wrapper -->
+
+        @yield('content')
         <footer class="htc__foooter__area gray-bg">
             <div class="container">
                 <div class="row">
                     <div class="footer__container clearfix">
-                         <!-- Start Single Footer Widget -->
+                        <!-- Start Single Footer Widget -->
                         <div class="col-md-3 col-lg-3 col-sm-6">
                             <div class="ft__widget">
                                 <div class="ft__logo">
                                     <a href="index.html">
-                                        <img src=" {{ asset('siteasset/images/logo/logo.png')}}" alt="footer logo">
+                                        <img src=" {{ asset('siteasset/images/logo/logo.png') }}" alt="footer logo">
                                     </a>
                                 </div>
                                 <div class="footer-address">
@@ -261,14 +343,24 @@
                                     <p>Subscribe to our newsletter and get 10% off your first purchase .</p>
                                     <div class="input__box">
                                         <div id="mc_embed_signup">
-                                            <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                            <form action="#" method="post" id="mc-embedded-subscribe-form"
+                                                name="mc-embedded-subscribe-form" class="validate" target="_blank"
+                                                novalidate>
                                                 <div id="mc_embed_signup_scroll" class="htc__news__inner">
                                                     <div class="news__input">
-                                                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+                                                        <input type="email" value="" name="EMAIL"
+                                                            class="email" id="mce-EMAIL" placeholder="Email Address"
+                                                            required>
                                                     </div>
                                                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                                    <div class="clearfix subscribe__btn"><input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
+                                                    <div style="position: absolute; left: -5000px;"
+                                                        aria-hidden="true"><input type="text"
+                                                            name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef"
+                                                            tabindex="-1" value=""></div>
+                                                    <div class="clearfix subscribe__btn"><input type="submit"
+                                                            value="Send" name="subscribe"
+                                                            id="mc-embedded-subscribe"
+                                                            class="bst__btn btn--white__color">
 
                                                     </div>
                                                 </div>
@@ -288,7 +380,7 @@
                             <div class="copyright__inner">
                                 <div class="copyright">
                                     <p>© 2017 <a href="https://freethemescloud.com/">Free themes Cloud</a>
-                                    All Right Reserved.</p>
+                                        All Right Reserved.</p>
                                 </div>
                                 <ul class="footer__menu">
                                     <li><a href="index.html">Home</a></li>
@@ -312,14 +404,16 @@
             <div class="modal-dialog modal__container" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="modal-product">
                             <!-- Start product images -->
                             <div class="product-images">
                                 <div class="main-image images">
-                                    <img alt="big images" src=" {{ asset('siteasset/images/product/big-img/1.jpg')}}">
+                                    <img alt="big images"
+                                        src=" {{ asset('siteasset/images/product/big-img/1.jpg') }}">
                                 </div>
                             </div>
                             <!-- end product images -->
@@ -344,7 +438,8 @@
                                     </div>
                                 </div>
                                 <div class="quick-desc">
-                                    Designed for simplicity and made from high quality materials. Its sleek geometry and material combinations creates a modern look.
+                                    Designed for simplicity and made from high quality materials. Its sleek geometry and
+                                    material combinations creates a modern look.
                                 </div>
                                 <div class="select__color">
                                     <h2>Select color</h2>
@@ -369,11 +464,20 @@
                                     <div class="widget widget_socialsharing_widget">
                                         <h3 class="widget-title-modal">Share this product</h3>
                                         <ul class="social-icons">
-                                            <li><a target="_blank" title="rss" href="#" class="rss social-icon"><i class="zmdi zmdi-rss"></i></a></li>
-                                            <li><a target="_blank" title="Linkedin" href="#" class="linkedin social-icon"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                            <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                            <li><a target="_blank" title="Tumblr" href="#" class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a></li>
-                                            <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                            <li><a target="_blank" title="rss" href="#"
+                                                    class="rss social-icon"><i class="zmdi zmdi-rss"></i></a></li>
+                                            <li><a target="_blank" title="Linkedin" href="#"
+                                                    class="linkedin social-icon"><i
+                                                        class="zmdi zmdi-linkedin"></i></a></li>
+                                            <li><a target="_blank" title="Pinterest" href="#"
+                                                    class="pinterest social-icon"><i
+                                                        class="zmdi zmdi-pinterest"></i></a></li>
+                                            <li><a target="_blank" title="Tumblr" href="#"
+                                                    class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a>
+                                            </li>
+                                            <li><a target="_blank" title="Pinterest" href="#"
+                                                    class="pinterest social-icon"><i
+                                                        class="zmdi zmdi-pinterest"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -392,16 +496,16 @@
     <!-- Placed js at the end of the document so the pages load faster -->
 
     <!-- jquery latest version -->
-    <script src=" {{ asset('siteasset/js/vendor/jquery-1.12.0.min.js')}}"></script>
+    <script src=" {{ asset('siteasset/js/vendor/jquery-1.12.0.min.js') }}"></script>
     <!-- Bootstrap framework js -->
-    <script src=" {{ asset('siteasset/js/bootstrap.min.js')}}"></script>
+    <script src=" {{ asset('siteasset/js/bootstrap.min.js') }}"></script>
     <!-- All js plugins included in this file. -->
-    <script src=" {{ asset('siteasset/js/plugins.js')}}"></script>
-    <script src=" {{ asset('siteasset/js/slick.min.js')}}"></script>
-    <script src=" {{ asset('siteasset/js/owl.carousel.min.js')}}"></script>
-    <script src=" {{ asset('siteasset/js/waypoints.min.js')}}"></script>
+    <script src=" {{ asset('siteasset/js/plugins.js') }}"></script>
+    <script src=" {{ asset('siteasset/js/slick.min.js') }}"></script>
+    <script src=" {{ asset('siteasset/js/owl.carousel.min.js') }}"></script>
+    <script src=" {{ asset('siteasset/js/waypoints.min.js') }}"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
-    <script src=" {{ asset('siteasset/js/main.js')}}"></script>
+    <script src=" {{ asset('siteasset/js/main.js') }}"></script>
 
     @yield('scripts')
 

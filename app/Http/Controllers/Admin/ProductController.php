@@ -45,6 +45,11 @@ class ProductController extends Controller
         ]);
         //store image
         $new_image = rand() . rand() . time() . $request->file('image')->getClientOriginalName();
+
+        $new_image = str_replace(' ', '', $new_image);
+
+        $new_image = strtolower($new_image);
+
         $request->file('image')->move(public_path('uploads/images/products'), $new_image);
 
         //save data to database

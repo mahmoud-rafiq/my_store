@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->float('total');
-            $table->float('special_discount');
-            $table->string('discount_type');
-            $table->enum('status', ['completed', 'refund', 'canceld']);
+            $table->float('special_discount')->nullable();
+            $table->string('discount_type')->nullable();
+            $table->enum('status', ['completed', 'refund', 'canceld'])->default('completed');;
             $table->timestamps();
         });
     }
