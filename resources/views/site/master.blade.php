@@ -76,7 +76,7 @@ use App\Models\Cart;
                                             <li><a href="blog-details.html">Blog details</a></li>
                                         </ul>
                                     </li>
-                                    <li class="drop"><a href="shop.html">Shop</a>
+                                    <li class="drop"><a href="{{route('site.shop')}}">Shop</a>
                                         <ul class="dropdown mega_dropdown">
                                             <!-- Start Single Mega MEnu -->
                                             <li><a class="mega__title" href="shop.html">shop layout</a>
